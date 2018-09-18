@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <title>Form</title>
+</head>
+<body>
+<form>
+  <ul>
+    <li>
+      <label for="first-name">First Name: </label>
+      <input type="text" name="first-name" id="first-name" value="" />
+    </li>
+    <li>
+      <label for="last-name">Last Name: </label>
+      <input type="text" name="last-name" id="last-name" value="" />
+    </li>
+    <li>
+      <label for="email">Email: </label>
+      <input type="text" name="email" id="email" value="" />
+    </li>
+    <li>
+      <label for="birthday">Birthday: </label>
+      <input type="date" name="birthday" id="birthday" />
+    </li>
+
+    <li>
+      <label for="sport">Favourite Sport:</label>
+        <select name="sport" id="sport">
+          <option value="">Select your favourite sport</option>
+          <option value="futbol">Futbol</option>
+          <option value="rugby">Rugby</option>
+          <option value="tennis">Tennis</option>
+          <option value="hockey">Hockey</option>
+          <option value="basketball">Basketball</option>
+        </select>
+    </li>
+
+    <li>
+      <label for="bio">Bio Description: </label>
+      <textarea name="bio" id="bio" cols="25" rows="3"></textarea>
+    </li>
+  
+    Add relevant validation rules for all fields (like required fields, valid email).
+  </ul>
+
+
+  <input type="submit" value="Submit" />
+  <input type="reset" value="Reset" />
+
+</form>
+
+</body>
+</html>
