@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 
-<meta name="Keywords" content="excecise,html,6"/>
-<meta name="Description" content="Excercise 6, the basic of HTML"/>
-<meta name="Distribution" content="global"/>
-<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <html lang="en-GB">
 <head>
   <meta charset="utf-8">
   <title>Form</title>
+  
+  <meta name="Keywords" content="excecise,html,6"/>
+  <meta name="Description" content="Excercise 6, the basic of HTML"/>
+  <meta name="Distribution" content="global"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
 <form>
   <ul>
     <li>
       <label for="first-name">First Name: </label>
-      <input type="text" name="first-name" id="first-name" value="" />
+      <input type="text" name="first-name" id="first-name" value="" required/>
     </li>
     <li>
       <label for="last-name">Last Name: </label>
-      <input type="text" name="last-name" id="last-name" value="" />
+      <input type="text" name="last-name" id="last-name" value="" required />
     </li>
     <li>
       <label for="email">Email: </label>
-      <input type="text" name="email" id="email" value="" />
+      <input type="email" name="email" id="email" value="" required />
     </li>
     <li>
       <label for="birthday">Birthday: </label>
@@ -46,8 +47,6 @@
       <label for="bio">Bio Description: </label>
       <textarea name="bio" id="bio" cols="25" rows="3"></textarea>
     </li>
-  
-    Add relevant validation rules for all fields (like required fields, valid email).
   </ul>
 
 
