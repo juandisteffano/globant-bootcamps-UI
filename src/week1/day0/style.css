@@ -1,0 +1,13 @@
+header, footer, aside, nav {
+    background: red;
+}
+
+ 
+* {
+    font-family: Helvetica;
+    font-size: 14px;
+}
+
+header, footer{
+    text-align: center;
+}
