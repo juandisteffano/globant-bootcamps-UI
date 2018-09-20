@@ -1,13 +1,120 @@
-header, footer, aside, nav {
+/* 2.2.1. Add background to the header, footer, aside and nav.*/
+header, footer {
     background: red;
 }
+aside, nav {
+    background: blue;
+}
 
- 
-* {
+/* 2.2.2. Add a global font definition (at html element) with a value of 14px, using a font-family you like.*/
+html {
     font-family: Helvetica;
     font-size: 14px;
 }
 
+/* 2.2.3. Center the header and footer text.*/
 header, footer{
     text-align: center;
 }
+
+
+/* 
+2.3.3 Using the new added classes figure out how to override:
+.header must have a font size of 46px
+.footer must have a font size of 10px
+.content must have a font size of 14px
+.navigation must have a font size of 12px
+.sidebar must have a font size of 10px
+
+2.3.4 If the class attribute finishes with r (example header, footer), the background must be magenta.
+
+2.3.5 If the class attribute contains an a (example nav) but do NOT finish with r, the background must be blue.
+*/
+.header {
+    font-size: 46px;
+    background: magenta;
+}
+.footer {
+    font-size: 10px;
+    background: magenta;
+}
+.content {
+    font-size: 14px;
+} 
+.navigation {
+    font-size: 12px;
+    background: blue;
+}
+.sidebar {
+    font-size: 10px;
+    background: magenta;
+}
+
+/* 
+6- How could you add weight to the global font definition to win over the classes added by point 3?
+* {
+    font-weight: bold;
+}
+
+7- Imagine there is a declaration like class=”oh-no-inline-styles” style=”background:red” 
+and you need to change the background to green without changing the inline style. 
+How could you accomplish this?
+
+.oh-no-inline-styles {
+    background: green;
+}
+*/
+
+/* 2.5.1 Now modify your CSS to reach something similar to the initial layout asked. */
+header, 
+footer {
+    display: block;
+    box-sizing: border-box;
+    border-radius: 15px;
+}
+
+.grid {
+    text-align: center;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    box-sizing: border-box;
+}
+
+.content, 
+.navigation, 
+.sidebar {
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    border-radius: 15px;
+    height: 200px;
+    padding: 1%;
+}
+
+.navigation, 
+.sidebar {
+    width: 25%;
+}
+.content {
+    width: 47%;
+    margin: 0% 1%;
+    background: grey;
+}
+
+.principal-content {
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    background: black;
+}
+
+.content article{
+    height: 50%;
+    margin: 1% 0%;
+    border-radius: 15px;
+    background: red;
+}
+
+
+
+
