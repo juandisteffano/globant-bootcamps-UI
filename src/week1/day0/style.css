@@ -65,19 +65,27 @@ How could you accomplish this?
 }
 */
 
+* {
+	box-sizing: border-box;
+}
 /* 2.5.1 Now modify your CSS to reach something similar to the initial layout asked. */
+.principal-content {
+	padding: 1%;
+	border-radius: 15px;
+	background: black;
+}
+
 header, 
 footer {
     display: block;
-    box-sizing: border-box;
     border-radius: 15px;
 }
 
 .grid {
     text-align: center;
     padding-top: 1%;
-    padding-bottom: 1%;
-    box-sizing: border-box;
+		padding-bottom: 1%;
+		height: 200px;
 }
 
 .content, 
@@ -85,9 +93,8 @@ footer {
 .sidebar {
     display: inline-block;
     vertical-align: middle;
-    box-sizing: border-box;
+    height: 100%;
     border-radius: 15px;
-    height: 200px;
     padding: 1%;
 }
 
@@ -96,24 +103,19 @@ footer {
     width: 25%;
 }
 .content {
-    width: 47%;
+		width: 47%;
     margin: 0% 1%;
     background: grey;
 }
 
-.principal-content {
-    padding: 5px;
-    box-sizing: border-box;
-    border-radius: 15px;
-    background: black;
-}
-
 .content article{
-    height: 50%;
+    height: 46%;
     margin: 1% 0%;
     border-radius: 15px;
     background: red;
 }
+
+
 
 
 
