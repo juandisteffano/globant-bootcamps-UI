@@ -2,11 +2,15 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 26px;
+}
+
 .body {
     background-color: white;
 }
 
-.header{
+header{
     height: 25%;
     background-color: red;
     overflow: auto;
@@ -15,11 +19,12 @@
 .texto-izquierda,
 .texto-derecha {
     padding: 2%;
+    font-size: 0.6rem;
 }
 
 
 
-.content {
+section {
     background-color: aquamarine;
     padding: 1%;
     position: relative;
@@ -62,7 +67,7 @@
 
 p.titulo-elemento{
     clear: both;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: bold;
     padding: 0%;
     text-align: center;
@@ -94,7 +99,7 @@ p.titulo-elemento{
   margin-left: 0;
 }
 p.title {
-  font-size: 2em;
+  font-size: 1.5rem;
   padding: 5%;
 }
 .screen.fade-in .title {
@@ -106,7 +111,7 @@ p.title {
 
 /* Media Queries*/
 /*Desktop*/
-@media screen and (max-width: 501px) {
+@media screen and (min-width: 501px) {
     .texto-izquierda{
         width: 33.33%;
         float: left;
@@ -118,13 +123,13 @@ p.title {
     }
 
     .columna {
-        width: 100%;
+        width: 32%;
     }
 }
 
 
 /*Mobile*/
-@media screen and (min-width: 500px) {
+@media screen and (max-width: 500px) {
     .texto-izquierda{
         width: 100%;
         float: none;
@@ -136,6 +141,6 @@ p.title {
     }
 
     .columna {
-        width: 32%;
+        width: 100%;
     }
 }
