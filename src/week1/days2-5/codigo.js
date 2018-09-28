@@ -140,13 +140,26 @@ function getGitRepositoriesVar(sectionMsj, tipoParam, inputField){
 //Lista full_name - Recibe el req con formato JSON
 function agregarElementos(value, idSection){ 
 	var lista=document.getElementById(idSection); 
+	/*
 	var array = JSON.parse(value).items;
         array.forEach(function(data,index){
             var linew= document.createElement("li");    
             var contenido = document.createTextNode(data.full_name);
             lista.appendChild(linew);
             linew.appendChild(contenido);
-    })
+	})
+	*/
+	var array = JSON.parse(value).items;
+        array.forEach(function(data,index){
+            var linew= document.createElement("li");    
+			lista.appendChild(linew);
+			var linkNew = document.createElement("a");
+			linkNew.href = data.html_url;
+			linew.appendChild(linkNew);
+            var contenido = document.createTextNode(data.full_name);
+            linkNew.appendChild(contenido);
+	})
+	
 }
 
 
@@ -202,7 +215,7 @@ function matrixToDOM(matriz){
 			fils[j].style.border = "#000 solid 1px";
 			fils[j].style.width = "100%";
 			fils[j].style.textAlign = "center";
-			
+
 			if(j<fils.length-1)
 				fils[j].style.borderBottom = "none";
 		}
