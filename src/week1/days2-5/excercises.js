@@ -318,3 +318,31 @@ To find out whether values should be compared directly (use the === operator for
 The Object.keys function will be useful when you need to go over the properties of objects to compare them.
 */
 
+function deepEqual(param1, param2) {
+    if (param1 === param2){
+        return true;
+    } 
+    
+    if (param1 == null || typeof param1 != "object") {
+        return false;
+    }
+    if (param2 == null || typeof param2 != "object") {
+        return false;
+    }
+            
+  
+    var valsParam1 = Object.keys(param1);
+    var valsParam2 = Object.keys(param2);
+  
+    if (valsParam1.length != valsParam2.length){
+        return false;
+    }
+  
+    for (let vals of valsParam1) {
+        if (!valsParam2.includes(vals) || !deepEqual(param1[vals], param2[vals])){
+         return false;
+        }
+    }
+  
+    return true;
+  }
