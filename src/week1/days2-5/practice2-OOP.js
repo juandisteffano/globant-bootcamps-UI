@@ -67,13 +67,20 @@ class EventEmitter {
         const event = this.events[eventName];
         if( event ) {
             event.forEach(fn => {
-                fn.call(null, data);
+                fn(eventName, data);
             });
         }
     }
    // The off method will delete the listener.
-    off(name, callback){
-
+    off(eventName, callback){
+        let event = this.events[eventName];
+        if( event ) {
+            for(let i=0; i<event.length; i++){
+                if(event[i].toString() === callback.toString()){
+                    event.splice(i, 1);
+                }
+            }
+        }
     }
 }
 
@@ -91,23 +98,23 @@ class Movie extends EventEmitter {
         this.duration = duration;
         this.cast = [];
 
-        this.on("Play", function (p, title){ console.log("Play: "+ title)});
-        this.on("Pause", function (p, title){ console.log("Pause: "+ title)});
-        this.on("Resume", function (p, title){ console.log("Resume: "+ title)});
-        console.log(this.events);
-
+        this.on("Play", function playFnMov(p, mov){ console.log("Play: "+ mov.title)});
+        this.on("Pause", function pauseFnMov(p, mov){ console.log("Pause: "+ mov.title)});
+        this.on("Resume", function resumeFnMov(p, mov){ console.log("Resume: "+ mov.title)});
+        //this.off("Resume", function resumeFnMov(p, mov){ console.log("Resume: "+ mov.title)});
+        //console.log(this.events);
     }
     play(){
         //console.log("Play Movie: " + this.title)
-        this.emit("Play", this.title);
+        this.emit("Play", this);
     }
     pause(){
         //console.log("Pause Movie: " + this.title)
-        this.emit("Pause", this.title);
+        this.emit("Pause", this);
     }
     resume(){
         //console.log("Resume Movie: " + this.title)
-        this.emit("Resume", this.title);
+        this.emit("Resume", this);
     }
 
     addCast(castAdd){
@@ -139,6 +146,22 @@ terminator.on('play', logger.log);
 // ...
 terminator.play(); // output: The 'play' event has been emitted
 */
+
+class Logger{
+    
+    log(event,info) {
+        console.log("The "+event+" event has been emitted");
+    }
+
+}
+
+function pruebaLogger(){
+    let terminator = new Movie('Terminator', 1984, 90);
+    let logger = new Logger();
+    terminator.on('Play', logger.log);
+    terminator.play(); // output: The 'play' event has been emitted
+}
+
 
 /*
 6. Create an object called Social with methods share(friendName) and like(friendName) that will 

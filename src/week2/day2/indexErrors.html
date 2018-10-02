@@ -12,13 +12,21 @@
         let someArr = [1, 2, 3, 4];
 
         function giveMe(inx) {
-                return someArr[inx];
+                if (!someArr[inx]) {
+                    throw new Error("Array position invalid")
+                }else{
+                    return someArr[inx];
+                }
         }
 
 
-        //for (let counter= 0; counter <= someArr.length; counter++) {
-        for (let counter= 0; counter < someArr.length; counter++) {
-            console.log(`Index = ${counter}, value = ${giveMe(counter)}`);
+        for (let counter= 0; counter <= someArr.length; counter++) {
+        //for (let counter= 0; counter < someArr.length; counter++) {
+            try{
+                console.log(`Index = ${counter}, value = ${giveMe(counter)}`);
+            }catch(e){
+                console.log(e);
+            }
         }
 
         console.log("The code continues");
@@ -28,15 +36,27 @@
 
 <script>
      function assert(condition, message) {
+                console.log(message);
             if (!condition) {
-                console.log(message + ": Assertion failed");
-            }else{
-                console.log(message + ": Pass");
+                throw new Error("Condition Failed")
             }
     }
 
-       assert(3>2,"Test Assertion OK");
-       assert(3<2,"Test Assertion Error");
+       
+       try{
+            assert(3>2,"Test Assertion Valid");
+            console.log("OK");
+       }catch (e){
+           console.log(e);
+       }
+
+
+       try{
+            assert(3<2,"Test Assertion Error");
+            console.log("OK");
+       }catch (e){
+           console.log(e);
+       }
 
 </script>
 
