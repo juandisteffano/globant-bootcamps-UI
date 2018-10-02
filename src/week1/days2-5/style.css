@@ -71,3 +71,9 @@ colStyle {
     float: left;
     list-style: none;
 }
+
+button {
+    display: block;
+    margin: 1%;
+    box-sizing: border-box;
+}
