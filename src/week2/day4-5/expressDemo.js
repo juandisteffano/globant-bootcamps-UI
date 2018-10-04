@@ -1,9 +1,28 @@
-const express = ;
+const express = require("express");
 const app = express();
 const port = 3000;
+var fs = require("fs");
 
 app.get('/', (req, res) => {
     res.send('Hello There!');
+})
+app.get('/random', (req, res) => {
+    let result = Math.random() * 100;
+
+    res.send("Random: " + result.toFixed(0));
+})
+
+app.get('/saludo', function (req, res) {
+    var nombre = req.query.nombre;
+    res.send('<h1>Hola ' + nombre  + '</h1>');
+  });
+
+app.get('/jsonresp', (req, res) => {
+    fs.readFile("./package.json", function(err, data){
+        if(err) res.send(err);
+        res.send(JSON.parse(data));
+    })
+
 })
 
 app.listen(port, () => {
