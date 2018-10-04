@@ -1,10 +1,6 @@
-<!-- Take this file and open it on a browser, then open the console
-    inside developer tools -->
-<script>
-    (function(){
-        "use strict";
-    })()
-</script>
+<!doctype html>
+
+<meta charset="utf8">
 
 <!-- Now it's your turn to make some changes
     - Add at least 2 DOM elements, via code, DOH
@@ -16,3 +12,78 @@
     ****      show me you can dominate the DOM      ****
     ****************************************************
 -->
+
+<!-- Take this file and open it on a browser, then open the console
+    inside developer tools -->
+
+<div id="principal"></div>
+
+<head>
+<script>
+    (function(){
+        "use strict";
+        
+        let principal = document.getElementById("principal");
+
+        let p1 = document.createElement("p"); 
+        principal.appendChild(p1);
+  
+        p1.appendChild(document.createTextNode("Elemento Parrafo 1"));
+
+        let p2 = document.createElement("p"); 
+        principal.appendChild(p2);
+
+        p2.appendChild(document.createTextNode("Elemento Parrafo 2"));
+
+    })();
+
+    (function cantVariable(){
+            let principal = document.getElementById("principal");
+            let cantVarSec = document.createElement("div");
+            principal.appendChild(cantVarSec);
+            //document.insertBefore(cantVarSec,document.getElementById("principal"));
+
+            let inputText = document.createElement("input");
+            inputText.id = "inputText";
+            cantVarSec.appendChild(inputText);
+            inputText.placeholder = "Inserte la cantidad de elementos que desea crear";
+
+            let bt = document.createElement("button");
+            cantVarSec.appendChild(bt);
+            bt.appendChild(document.createTextNode("Agregar"));
+
+            let listadoElem = document.createElement("ul");
+     
+            listadoElem.id = "listadoElem";
+            principal.appendChild(listadoElem);
+
+            bt.onclick = function agregarElementos(){
+                            let cant = document.getElementById("inputText").value;
+                            if(cant>0){
+                                let list = document.getElementById("listadoElem");
+
+                                while (list.firstChild) {
+                                    list.firstChild.remove();
+                                }
+
+                                for(let i=0; i<cant; i++){
+                                    let li = document.createElement("li")
+                                    li.appendChild(document.createTextNode("Elemento "+(i+1)));
+                                    list.appendChild(li);
+                                }
+                            }
+                        }
+
+
+    }
+
+    )();
+
+</script>
+</head>
+
+<body>
+    
+</body>
+
+
