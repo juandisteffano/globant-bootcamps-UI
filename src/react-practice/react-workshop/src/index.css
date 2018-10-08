@@ -1,0 +1,67 @@
+html {
+  font-size: 16px;
+}
+
+body{
+  margin: 2%;
+}
+
+.login {
+  width: 33%;
+  clear: both;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid 1px black;
+}
+
+
+header {
+  color: grey;
+  background: rgb(228, 223, 223);
+  text-align: center;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 2rem;
+  height: 4rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+section {
+  padding: 5% 15%;
+}
+
+footer{
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 5%;
+}
+
+.customInput,
+.customButton{
+  display: block;
+  box-sizing: border-box;
+  float: none;
+  width: 100%;
+  margin-bottom: 5%;
+  font-size: 1rem;
+  height: 3rem;
+}
+
+.customInput{
+  border: 1px solid rgb(214, 211, 211);
+  padding-left: 5%;
+}
+.customButton{
+  background-color: #ec7c6c;
+  border-radius: 5px;
+  border: 0;
+  color: white;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+
+}
