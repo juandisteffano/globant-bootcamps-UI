@@ -1,32 +1,30 @@
 import React from 'react';
+import './ListMovie.css';
 
 export default class ListMovie extends React.Component {
 
-    constructor(props) {
+    constructor(props){
         super(props);
-        this.state = {
-          movies: [{
-                    key: 1,
-                    name: "Pel1",
-                    duration: 168,
-                    year: 1999,
-                },
-                { 
-                    key: 2,
-                    name: "Pel2",
-                    duration: 168,
-                    year: 1999,
-                },
-            ],
-        };
-      }
-
+        this.handleDeleteClick = this.handleDeleteClick.bind(this);
+    }
 
     render(){
-        const mov = this.state.movies.map((movie, num) => {
+        const mov = this.props.listMovies.map((movie, num) => {
             return (
                 <li key={num}>
+
                     {movie.name} , {movie.duration} , {movie.year}
+
+                    <button
+                        className = "button edit"
+                    >Edit</button> 
+
+                    <button
+                        pos = {num}
+                        className = "button delete"
+                        onClick = {(num) => this.handleDeleteClick(num)}
+                    >Delete</button> 
+
                 </li>
             );
         });
@@ -34,15 +32,19 @@ export default class ListMovie extends React.Component {
 
         return (
             <div className="listMovie">
-                <header>Movies:</header>
+                <header>Favorites Movies</header>
                 <section>
-                    <ol>{mov}</ol> 
+                    <ol>
+                        {mov}
+                    </ol>  
                 </section>
             </div>
         )
     }
 
-
+    handleDeleteClick(event){
+        this.props.deleteMovie(event.target.getAttribute('pos'));
+    }
 
 
 }

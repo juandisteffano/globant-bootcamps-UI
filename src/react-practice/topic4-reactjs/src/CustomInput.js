@@ -15,6 +15,7 @@ export default class CustomInput extends React.Component {
                     placeholder = {this.props.placeholder}
                     type = {this.props.type}
                     id = {this.props.id}
+                    onChange = {this.props.onChange}
                 ></input>;
     }
 
