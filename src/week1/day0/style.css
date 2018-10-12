@@ -59,11 +59,11 @@ header, footer{
 7- Imagine there is a declaration like class=”oh-no-inline-styles” style=”background:red” 
 and you need to change the background to green without changing the inline style. 
 How could you accomplish this?
-
-.oh-no-inline-styles {
-    background: green;
-}
 */
+.oh-no-inline-styles {
+    background: green !important;
+}
+
 
 * {
 	box-sizing: border-box;
@@ -84,8 +84,8 @@ footer {
 .grid {
     text-align: center;
     padding-top: 1%;
-		padding-bottom: 1%;
-		height: 200px;
+	padding-bottom: 1%;
+	height: 200px;
 }
 
 .content, 
@@ -103,7 +103,7 @@ footer {
     width: 25%;
 }
 .content {
-		width: 47%;
+	width: 47%;
     margin: 0% 1%;
     background: grey;
 }
