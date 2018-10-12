@@ -14,6 +14,7 @@ class IndexPage extends React.Component{
 
         this.addMovie = this.addMovie.bind(this);
         this.deleteMovie = this.deleteMovie.bind(this);
+        this.replaceMovie = this.replaceMovie.bind(this);
 
         this.state = {
           movies: [{
@@ -45,6 +46,13 @@ class IndexPage extends React.Component{
         localStorage.setItem("movies", moviesAct);
     }
 
+    replaceMovie(movie, index){
+        let moviesAct = Object.assign([], this.state.movies);
+        moviesAct[index] = movie;
+        this.setState({movies: moviesAct});
+        localStorage.setItem("movies", moviesAct);
+    }
+
     render(){
         return (
             <div id = "indexPage">
@@ -52,6 +60,7 @@ class IndexPage extends React.Component{
                 <ListMovie 
                     listMovies = {this.state.movies}
                     deleteMovie = {this.deleteMovie}
+                    replaceMovie  = {this.replaceMovie}
                 />
                 <CreateMovie 
                     onClick = {this.saveMovie}

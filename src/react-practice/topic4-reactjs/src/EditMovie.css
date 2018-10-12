@@ -1,0 +1,14 @@
+.editMovie{
+    display: inline;
+    box-sizing: content-box;
+    width: 20%;
+}
+
+
+.cancel {
+    background-color: red;
+}
+
+.save {
+    background-color: green;
+}

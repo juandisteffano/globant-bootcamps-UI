@@ -10,6 +10,7 @@
     margin-left: 2%;
     border-radius: 20%;
     border: solid 0.5px black;
+    color: black;
   }
 
   .edit{
@@ -23,3 +24,5 @@
   li {
     font-size: 1.5rem;
   }
+
+  

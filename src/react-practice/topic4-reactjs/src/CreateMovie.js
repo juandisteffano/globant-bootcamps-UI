@@ -48,9 +48,9 @@ export default class CreateMovie extends React.Component {
                     />
                     <CustomButton 
                         className = "customButton"
-                        content = "Create Movie"
+                        content = "Create"
                         onClick = {this.saveMovie}
-                        disabled = {!this.state.disabledButton}
+                        disabled = {this.state.disabledButton}
                     /> 
                 </section>
         

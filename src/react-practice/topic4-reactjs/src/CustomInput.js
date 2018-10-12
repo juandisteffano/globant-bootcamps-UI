@@ -16,6 +16,7 @@ export default class CustomInput extends React.Component {
                     type = {this.props.type}
                     id = {this.props.id}
                     onChange = {this.props.onChange}
+                    value = {this.props.value}
                 ></input>;
     }
 

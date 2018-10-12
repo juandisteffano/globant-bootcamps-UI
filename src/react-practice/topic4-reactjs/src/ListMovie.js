@@ -1,5 +1,7 @@
 import React from 'react';
 import './ListMovie.css';
+import CustomButton from './CustomButton';
+import EditMovie from './EditMovie';
 
 export default class ListMovie extends React.Component {
 
@@ -11,19 +13,22 @@ export default class ListMovie extends React.Component {
     render(){
         const mov = this.props.listMovies.map((movie, num) => {
             return (
-                <li key={num}>
+                <li key={num} pos={num}>
 
                     {movie.name} , {movie.duration} , {movie.year}
 
-                    <button
-                        className = "button edit"
-                    >Edit</button> 
-
-                    <button
+                    <EditMovie 
+                        movie = {movie}
+                        replaceMovie = {this.props.replaceMovie}
                         pos = {num}
+                    />
+                   
+                    <CustomButton
                         className = "button delete"
-                        onClick = {(num) => this.handleDeleteClick(num)}
-                    >Delete</button> 
+                        onClick = {this.handleDeleteClick}
+                        content = "Delete"
+                        disabled = {false}
+                    />
 
                 </li>
             );
@@ -43,9 +48,21 @@ export default class ListMovie extends React.Component {
     }
 
     handleDeleteClick(event){
-        this.props.deleteMovie(event.target.getAttribute('pos'));
+        this.props.deleteMovie(event.target.parentElement.getAttribute('pos'));
     }
 
+   
 
+
+
+/*
+    <CustomButton
+    className = "button edit"
+    content = "Edit"
+    onClick =  {this.handleEditClick}
+    disabled = {false}
+
+/>
+*/
 }
 
