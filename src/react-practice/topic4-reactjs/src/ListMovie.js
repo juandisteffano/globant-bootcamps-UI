@@ -17,17 +17,18 @@ export default class ListMovie extends React.Component {
 
                     {movie.name} , {movie.duration} , {movie.year}
 
+                   
+                   <CustomButton
+                        className = "button-small delete"
+                        onClick = {this.handleDeleteClick}
+                        content = "Delete"
+                        disabled = {false}
+                    />
+
                     <EditMovie 
                         movie = {movie}
                         replaceMovie = {this.props.replaceMovie}
                         pos = {num}
-                    />
-                   
-                    <CustomButton
-                        className = "button delete"
-                        onClick = {this.handleDeleteClick}
-                        content = "Delete"
-                        disabled = {false}
                     />
 
                 </li>
@@ -52,17 +53,5 @@ export default class ListMovie extends React.Component {
     }
 
    
-
-
-
-/*
-    <CustomButton
-    className = "button edit"
-    content = "Edit"
-    onClick =  {this.handleEditClick}
-    disabled = {false}
-
-/>
-*/
 }
 
