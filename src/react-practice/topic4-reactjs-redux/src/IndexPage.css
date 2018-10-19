@@ -1,0 +1,35 @@
+html {
+  font-size: 16px;
+}
+
+body{
+  margin: 2%;
+}
+
+
+header {
+  color: grey;
+  background: rgb(228, 223, 223);
+  text-align: center;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 2rem;
+  height: 4rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+section {
+  padding: 5% 15%;
+}
+
+footer{
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 5%;
+}
+
+

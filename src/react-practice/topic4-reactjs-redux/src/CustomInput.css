@@ -1,0 +1,15 @@
+.customInput{
+  margin-bottom: 5%;
+  font-size: 1rem;
+  height: 3rem;
+  border: 1px solid rgb(214, 211, 211);
+  padding-left: 5%;
+
+  
+  display: block;
+  box-sizing: border-box;
+  float: none;
+  width: 100%;
+
+}
+

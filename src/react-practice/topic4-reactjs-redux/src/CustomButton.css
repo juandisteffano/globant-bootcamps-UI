@@ -1,0 +1,67 @@
+.button-large{
+  display: block;
+  box-sizing: border-box;
+  float: none;
+  width: 100%;
+  margin-bottom: 2%;
+  font-size: 1rem;
+  font-weight: bold;
+  height: 3rem;
+  border: 0;
+  border-radius: 5px;
+  color: black;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 1px 1px;
+}
+
+
+.button-medium {
+  box-sizing: content-box;
+  margin-left: 2%;
+  border-radius: 5px;
+  border: 0px;
+  color: black;
+  font-size: 1rem;
+  font-weight: bold;
+  height: 2rem;
+  box-shadow: 1px 1px;
+}
+
+.button-small {
+  box-sizing: content-box;
+  margin-left: 2%;
+  border-radius: 5px;
+  border: 0px;
+  color: black;
+  font-size: 0.75rem;
+  font-weight: bold;
+  height: 1.5rem;
+  box-shadow: 1px 1px;
+}
+
+.edit{
+  background-color: yellow;
+}
+
+.delete{
+  background-color: red;
+}
+
+.cancel {
+  background-color: red;
+}
+
+.save {
+  background-color: green;
+}
+.save:disabled {
+  background-color: rgba(0, 128, 0, 0.425);
+}
+
+.create{
+  background-color: blue;
+}
+.create:disabled{
+  background-color: rgba(0, 0, 255, 0.425);
+}

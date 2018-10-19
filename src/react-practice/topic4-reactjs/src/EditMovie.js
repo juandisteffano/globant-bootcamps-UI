@@ -4,7 +4,7 @@ import CustomButton from './CustomButton';
 import FormMovie from './FormMovie';
 
 
-export default class CreateMovie extends React.Component {
+export default class EditMovie extends React.Component {
     
     
     constructor(props) {
