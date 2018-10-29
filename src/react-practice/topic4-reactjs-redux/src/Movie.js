@@ -7,7 +7,6 @@ export default class Movie {
         this.id = id;
     }
 
-
     show(){
         return(this.id + " - Name: " + this.name +
                 " Duration: " + this.duration +

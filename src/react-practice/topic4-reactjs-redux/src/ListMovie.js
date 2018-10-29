@@ -14,7 +14,6 @@ export class ListMovie extends React.Component {
 
                     {movie.name} , {movie.duration} , {movie.year}
 
-
                    <CustomButton
                         className = "button-small delete"
                         onClick = {() => this.props.handleDeleteClick(movie)}
@@ -42,11 +41,7 @@ export class ListMovie extends React.Component {
             </div>
         )
     }
-
-    
-   
 }
-
 
 const mapStateToProps = state => {
   return {
@@ -66,4 +61,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(ListMovie);
+export default connect(mapStateToProps, mapDispatchToProps)(ListMovie);

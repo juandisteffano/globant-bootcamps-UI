@@ -6,12 +6,10 @@ import FormMovie from './FormMovie';
 //Redux
 import { connect } from 'react-redux';
 
-
 export class EditMovie extends React.Component {
-   
-//Consultar mejor forma de mostar elementos
+
     render(){
-        if(this.props.showEditForm[this.props.movieFromList.id-1]){
+        if (this.props.showEditForm[this.props.movieFromList.id-1]){
             return (
                 <div className="editMovie">
                         <FormMovie
@@ -48,7 +46,6 @@ export class EditMovie extends React.Component {
     }
 
 
-   
     componentDidUpdate(){
         Array.from(document.getElementsByClassName("editMovie")).map((value) => {
             if(!value.className.includes("efect"))
@@ -56,11 +53,7 @@ export class EditMovie extends React.Component {
             return 0;
         })
     }
-
 }
-
-
-
 
 const mapStateToProps = state => {
     return {
@@ -68,7 +61,7 @@ const mapStateToProps = state => {
         disabledSaveButton: state.disabledSaveButton,
         movie: state.movie,
     };
-  }
+}
   
 const mapDispatchToProps = dispatch => {
     return{
@@ -96,4 +89,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
   
-  export default connect(mapStateToProps,mapDispatchToProps)(EditMovie);
+export default connect(mapStateToProps, mapDispatchToProps)(EditMovie);

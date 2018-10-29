@@ -7,7 +7,6 @@
     margin-top: 5%;
     width: 100%;
     float: none;
-    
 }
 
 .efect {
@@ -35,8 +34,6 @@
     to   { opacity: 1; }
 }
 
-
-
 /* Internet Explorer */
 @-ms-keyframes fadein {
     from { opacity: 0; }
@@ -48,9 +45,3 @@
     from { opacity: 0; }
     to   { opacity: 1; }
 }
-/*
-@-webkit-keyframes slide {
-    from {max-height: 0px; }
-    to   {max-height: 500px;}
-}
-*/

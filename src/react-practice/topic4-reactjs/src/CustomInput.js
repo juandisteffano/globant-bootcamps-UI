@@ -3,12 +3,7 @@ import './CustomInput.css';
 
 
 export default class CustomInput extends React.Component {
-    /*
-    constructor(props) {
-        super(props);
-        
-      }
-*/
+
     render(){
         return <input 
                     className = {this.props.className}
@@ -17,9 +12,6 @@ export default class CustomInput extends React.Component {
                     id = {this.props.id}
                     onChange = {this.props.onChange}
                     value = {this.props.value}
-                ></input>;
+                />;
     }
-
-   
-
 }

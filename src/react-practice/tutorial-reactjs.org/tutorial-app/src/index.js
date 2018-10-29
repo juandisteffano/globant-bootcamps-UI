@@ -38,7 +38,6 @@ class Board extends React.Component {
 }
 
 
-
 function Square(props) {
     return (
       <button className="square" onClick={props.onClick}>
@@ -102,7 +101,9 @@ function Square(props) {
                     <button 
                     onClick={() => this.jumpTo(move)}
                     className = "bold"
-                    >{desc}</button>
+                    >
+                    {desc}
+                    </button>
                 </li>
             );
         });
@@ -133,7 +134,6 @@ function Square(props) {
     }
   }
   
-  // ========================================
   
   ReactDOM.render(
     <Game />,
@@ -160,3 +160,4 @@ function Square(props) {
     }
     return null;
   }
+  

@@ -14,6 +14,5 @@ export default class CustomButton extends React.Component {
                 {this.props.content}
             </button>
         );
-}
-
+    }
 }

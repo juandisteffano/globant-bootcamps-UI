@@ -6,7 +6,6 @@ export default class Movie {
         this.year = year;
     }
 
-
     show(){
         return("Name: " + this.name +
                 " Duration: " + this.duration +

@@ -55,6 +55,7 @@
 .save {
   background-color: green;
 }
+
 .save:disabled {
   background-color: rgba(0, 128, 0, 0.425);
 }
@@ -62,6 +63,7 @@
 .create{
   background-color: blue;
 }
+
 .create:disabled{
   background-color: rgba(0, 0, 255, 0.425);
 }

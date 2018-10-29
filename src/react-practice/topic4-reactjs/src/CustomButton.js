@@ -11,9 +11,8 @@ export default class CustomButton extends React.Component {
                 onClick = {this.props.onClick}
                 disabled = {this.props.disabled}
             >
-                {this.props.content}
+            {this.props.content}
             </button>
         );
-}
-
+    }
 }

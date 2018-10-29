@@ -6,7 +6,6 @@ body{
   margin: 2%;
 }
 
-
 header {
   color: grey;
   background: rgb(228, 223, 223);
@@ -15,11 +14,9 @@ header {
   width: 100%;
   font-size: 2rem;
   height: 4rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 section {

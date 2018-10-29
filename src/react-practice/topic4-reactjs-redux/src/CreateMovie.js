@@ -7,14 +7,13 @@ import FormMovie from './FormMovie'
 import { connect } from 'react-redux';
 
 export class CreateMovie extends React.Component {
-    render(){
 
-        if(this.props.showCreateForm){
+    render(){
+        if (this.props.showCreateForm){
             return (
                 <div className="createMovie">
                     <header>Create New</header>
                     <section>
-                        
                         <FormMovie
                             id = "createForm"
                             formType = "Create"
@@ -32,7 +31,6 @@ export class CreateMovie extends React.Component {
             return null
         }
     }
-
 }
 
 
@@ -41,7 +39,7 @@ const mapStateToProps = state => {
         disabledCreateButton: state.disabledCreateButton,
         showCreateForm: state.showCreateForm
     };
-  }
+}
   
 const mapDispatchToProps = dispatch => {
     return{
@@ -54,4 +52,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
   
-  export default connect(mapStateToProps,mapDispatchToProps)(CreateMovie);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateMovie);

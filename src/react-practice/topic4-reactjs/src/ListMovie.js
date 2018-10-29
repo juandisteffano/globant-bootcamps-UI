@@ -14,10 +14,8 @@ export default class ListMovie extends React.Component {
         const mov = this.props.listMovies.map((movie, num) => {
             return (
                 <li key={num} pos={num}>
-
                     {movie.name} , {movie.duration} , {movie.year}
 
-                   
                    <CustomButton
                         className = "button-small delete"
                         onClick = {this.handleDeleteClick}
@@ -51,7 +49,4 @@ export default class ListMovie extends React.Component {
     handleDeleteClick(event){
         this.props.deleteMovie(event.target.parentElement.getAttribute('pos'));
     }
-
-   
 }
-

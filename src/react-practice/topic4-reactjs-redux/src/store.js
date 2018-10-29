@@ -1,23 +1,15 @@
 import { createStore } from 'redux';
 import Movie from './Movie';
 
-
 const initialState = {
     movie: new Movie('','','',0),
-    /*
-    movies: [new Movie("Pel1",168,199,1),
-            new Movie("Pel1",168,199,2)
-        ],
-    */
     movies: [],
     disabledCreateButton: true,
     idCount: 0,
     showEditForm: [],
     disabledSaveButton: false,
     showCreateForm: true,
-
 }
-
 const reducer = (state=initialState, action)=>{
     let showEdit = state.showEditForm;
 
@@ -36,7 +28,6 @@ const reducer = (state=initialState, action)=>{
                     }
                 }),
                 showCreateForm: true
-                
             }
 
         case 'EDIT_MOVIE_CANCEL':
@@ -89,8 +80,5 @@ const reducer = (state=initialState, action)=>{
     }
 };
 
-
 const store = createStore(reducer, initialState);
-
-
 export default store;
