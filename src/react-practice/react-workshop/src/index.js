@@ -4,13 +4,13 @@ import './index.css';
 
 
 class CustomButton extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {
             text: "Click Me!",
         };
       }
-
 
     render(){
         return <button 
@@ -24,12 +24,7 @@ class CustomButton extends React.Component {
 }
 
 class CustomInput extends React.Component {
-    /*
-    constructor(props) {
-        super(props);
-        
-      }
-*/
+
     render(){
         return <input 
                     className = {this.props.className}
@@ -37,13 +32,10 @@ class CustomInput extends React.Component {
                     type = {this.props.type}
                 ></input>;
     }
-
-   
-
 }
 
-
 class Login extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -57,11 +49,7 @@ class Login extends React.Component {
         });
     }
 
-
     render(){
-        
-        //if(this.state.mounted)
-            //alert("Login mounted")
         return (
             <div className="login">
                 <header> Simple Login</header>
@@ -88,21 +76,6 @@ class Login extends React.Component {
             </div>
         )
     }
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ReactDOM.render(<Login />, document.getElementById('root'));

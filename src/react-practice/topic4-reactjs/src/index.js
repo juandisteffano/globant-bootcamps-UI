@@ -3,15 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import CreateMovie from './CreateMovie';
 import ListMovie from './ListMovie';
-
-
 import SimpleStorage from "react-simple-storage";
-
 
 class IndexPage extends React.Component{
     constructor(props) {
         super(props);
-
         this.addMovie = this.addMovie.bind(this);
         this.deleteMovie = this.deleteMovie.bind(this);
         this.replaceMovie = this.replaceMovie.bind(this);
@@ -69,11 +65,6 @@ class IndexPage extends React.Component{
             </div>
         )
     }
-
-
-
 }
-
-
 
 ReactDOM.render(<IndexPage />, document.getElementById('root'));

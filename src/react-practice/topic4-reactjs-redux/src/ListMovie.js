@@ -3,30 +3,26 @@ import './ListMovie.css';
 import CustomButton from './CustomButton';
 import EditMovie from './EditMovie';
 
-export default class ListMovie extends React.Component {
+//Redux
+import { connect } from 'react-redux';
 
-    constructor(props){
-        super(props);
-        this.handleDeleteClick = this.handleDeleteClick.bind(this);
-    }
-
+export class ListMovie extends React.Component {
     render(){
-        const mov = this.props.listMovies.map((movie, num) => {
+        const mov = this.props.movies.map((movie, num) => {
             return (
-                <li key={num} pos={num}>
+                <li key={num} >
+
                     {movie.name} , {movie.duration} , {movie.year}
 
                    <CustomButton
                         className = "button-small delete"
-                        onClick = {this.handleDeleteClick}
+                        onClick = {() => this.props.handleDeleteClick(movie)}
                         content = "Delete"
                         disabled = {false}
                     />
 
                     <EditMovie 
-                        movie = {movie}
-                        replaceMovie = {this.props.replaceMovie}
-                        pos = {num}
+                        movieFromList = {movie}
                     />
 
                 </li>
@@ -39,14 +35,30 @@ export default class ListMovie extends React.Component {
                 <header>Favorites Movies</header>
                 <section>
                     <ol>
-                        {mov}
+                        {mov.length>0 ? mov : <h1>Not Movies</h1>}
                     </ol>  
                 </section>
             </div>
         )
     }
-
-    handleDeleteClick(event){
-        this.props.deleteMovie(event.target.parentElement.getAttribute('pos'));
-    }
 }
+
+const mapStateToProps = state => {
+  return {
+    movies: state.movies,
+  };
+}
+
+const mapDispatchToProps = dispatch => {
+  return{
+    handleDeleteClick(movie){
+        const action = {
+            type: "DELETE_MOVIE",
+            movie
+        }
+        dispatch(action);
+    },
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ListMovie);

@@ -1,18 +1,17 @@
 import React from 'react';
-import CustomInput from './CustomInput';
-import CustomButton from './CustomButton';
 import './EditMovie.css';
-import Movie from './Movie';
+import CustomButton from './CustomButton';
+import FormMovie from './FormMovie';
 
 
-export default class CreateMovie extends React.Component {
-    
+export default class EditMovie extends React.Component {
     
     constructor(props) {
         super(props);
         this.state = {
             show: false,
-            movie : this.props.movie
+            movie : this.props.movie,
+            disabledSaveButton : false,
         }
         this.saveMovie = this.saveMovie.bind(this);
         this.handleEditClick = this.handleEditClick.bind(this);
@@ -20,113 +19,74 @@ export default class CreateMovie extends React.Component {
         this.onChange = this.onChange.bind(this);
     }
 
-   
-
     render(){
         if(this.state.show){
             return (
                 <div className="editMovie">
-                    <section>
-                        <CustomInput 
-                            className = "customInput"
-                            placeholder = "Name"
-                            id = "nameEdit"
-                            type = "text"
-                            value = {this.state.movie.name}
+                        <FormMovie
+                            id = "editForm"
+                            formType = "Edit"
+                            movie = {this.state.movie}
                             onChange = {this.onChange}
+                            pos = {this.props.pos}
+                            onLoad = {this.onLoad}
                         />
-                        <CustomInput 
-                            className = "customInput"
-                            placeholder = "Duration"
-                            id = "durationEdit"
-                            type = "text"
-                            value = {this.state.movie.duration}
-                            onChange = {this.onChange}
-                        />
-                        <CustomInput 
-                            className = "customInput"
-                            placeholder = "Year"
-                            id = "yearEdit"
-                            type = "text"
-                            value = {this.state.movie.year}
-                            onChange = {this.onChange}
-                        />
-                        <CustomButton 
-                            className = "customButton save"
-                            content = "Save"
-                            onClick = {this.saveMovie}
-                            disabled = {false}
-                        /> 
-                        <CustomButton 
-                            className = "customButton cancel"
-                            content = "Cancel"
-                            onClick = {this.handleCancelClick}
-                            disabled = {false}
-                        /> 
-                    </section>
-            
-                    
+                        <footer>
+                            <CustomButton 
+                                className = "button-medium save"
+                                content = "Save"
+                                onClick = {this.saveMovie}
+                                disabled = {this.state.disabledSaveButton}
+                            /> 
+                            <CustomButton 
+                                className = "button-medium cancel"
+                                content = "Cancel"
+                                onClick = {this.handleCancelClick}
+                                disabled = {false}
+                            /> 
+                        </footer>
                 </div>
             )
         }else{
             return (
-                <div className="editMovie">
-                        <CustomButton
-                            className = "button edit"
-                            content = "Edit"
-                            onClick =  {this.handleEditClick}
-                            disabled = {false}
-                        />
-                </div>
+                <CustomButton
+                    className = "button-small edit"
+                    content = "Edit"
+                    onClick =  {this.handleEditClick}
+                    disabled = {false}
+                />
             )
         }
     }
 
- 
     saveMovie(){
-        let movie = this.createNewMovie(); 
+        let movie = this.state.movie; 
         this.props.replaceMovie(movie, this.props.pos);
         this.setState({show: false});
-
     }
-
    
-
-    createNewMovie() {
-        let movie = new Movie(
-            document.getElementById("nameEdit").value,
-            document.getElementById("durationEdit").value,
-            document.getElementById("yearEdit").value
-        );
-        return movie;
-    }
 
     handleEditClick(){
         this.setState({movie : this.props.movie})
         this.setState({show: true});
     }
+
     handleCancelClick(){
         this.setState({show: false});
     }
     
-    onChange(event) {
-        this.setState({movie : this.createNewMovie()})
-        /*
-        if(event.target.id === "nameEdit"){
-            this.setState({
-            movie: { name: event.target.value }
+    onChange(movie, allFieldComplete) {
+        this.setState({
+            movie: movie,
+            disabledSaveButton: !allFieldComplete,
             });
-        }else if (event.target.id === "durationEdit"){
-            this.setState({
-              movie: { duration: event.target.value }
-            });
-        }else if (event.target.id === "yearEdit"){
-            this.setState({
-              movie: { year: event.target.value }
-            });
-        }
-        */
     }
 
-
+    componentDidUpdate(){
+        Array.from(document.getElementsByClassName("editMovie")).map((value) => {
+            if(!value.className.includes("efect"))
+                value.className += " efect"
+            return 0;
+        })
+    }
 }
