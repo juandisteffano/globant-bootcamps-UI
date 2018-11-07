@@ -44,4 +44,19 @@ describe('Test FormMovie Component', () => {
         expect(inputs.at(1).props().id).to.equal("durationEditidMovie");
         expect(inputs.at(2).props().id).to.equal("yearEditidMovie");
     });
+
+    it('Render CustomInputs from FormMovie without Movie', () => {
+        const store = mockStore({movie: {}});
+        const formMovie = mount(<FormMovie
+                                        store={store}
+                                        id = "createForm"
+                                        formType = "Create"
+                                    />);
+
+        const inputs = formMovie.find("CustomInput");
+        expect(inputs).to.have.length(3);
+        expect(inputs.at(0).props().id).to.equal("nameCreate");
+        expect(inputs.at(1).props().id).to.equal("durationCreate");
+        expect(inputs.at(2).props().id).to.equal("yearCreate");
+    });
 })
