@@ -2,7 +2,26 @@ function activarEfectoFadeIn(classElement){
     var elementos = Array.from(document.getElementsByClassName(classElement));
     for(var i = 0; i < elementos.length; i++){
         elementos[i].className = "fadeIn";
-    }
+	}
+}
+
+window.onload = () => {
+	activarEfectoFadeIn('hidden');
+
+	let getJokesRandomResponse = document.getElementById("getJokesRandomResponse");
+	getJokesRandomResponse.addEventListener('click', () => this.getJokesRandomResponse());
+
+	let getJokesRandomResponseReutilizable = document.getElementById("getJokesRandomResponseReutilizable");
+	getJokesRandomResponseReutilizable.addEventListener('click', () => {this.getJokesRandomResponseReutilizable("sectionMsj2")});
+
+	let getGitRepositories = document.getElementById("getGitRepositories");
+	getGitRepositories.addEventListener('click', () => {this.getGitRepositories('ulListado-javascript','q','JavaScript')});
+	
+	let getGitRepositoriesVar = document.getElementById("getGitRepositoriesVar");
+	getGitRepositoriesVar.addEventListener('click', () => {this.getGitRepositoriesVar('ulListado-GPM','q','inputRepository')});
+	
+	let generarMatriz = document.getElementById("generarMatriz");
+	generarMatriz.addEventListener('click', () => {this.generarMatriz()});
 }
 
 
@@ -62,7 +81,6 @@ function ajaxCall(config){
 		
 		//armar url
 		var url = getUrlConParam(config);
-
         req.open('GET', url , true);
 		req.send(null);
 		
@@ -71,13 +89,15 @@ function ajaxCall(config){
 
 function getUrlConParam(config){
 	var url = config.url;
-	for(let i= 0; i <config.param.length; i++){
-		url += "?"
-		url += config.param[i].key;
-		url += "="
-		url += config.param[i].value;
-		if (i != (config.param.length -1)){
-			url += "&"
+	if(config.param){
+		for(let i= 0; i <config.param.length; i++){
+			url += "?"
+			url += config.param[i].key;
+			url += "="
+			url += config.param[i].value;
+			if (i != (config.param.length -1)){
+				url += "&"
+			}
 		}
 	}
 	return url;	

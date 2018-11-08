@@ -39,6 +39,13 @@ for(var i = 0; i< cantNiveles; i++){
     console.log(line);
 }
 
+//Using lenght
+var cantNiveles = 5;
+for(var line = ""; line.length <= cantNiveles; line += "#"){
+    console.log(line);
+}
+
+
 /*
 FizzBuzz
 Write a program that uses console.log to print all the numbers from 1 to 100, with two exceptions. For numbers divisible by 3, print "Fizz" instead of the number, and for numbers divisible by 5 (and not 3), print "Buzz" instead.
@@ -52,7 +59,7 @@ When you have that working, modify your program to print "FizzBuzz" for numbers 
 for(var i = 1; i <= 100; i++){
     if( (i % 3) == 0){
         console.log("Fizz");
-    }else if ((i % 5) == 0 && (i % 3) != 0){
+    }else if ((i % 5) == 0){
         console.log("Buzz");
     }else{
         console.log(i);
@@ -266,7 +273,12 @@ The resulting objects form a chain, like this:
 A linked list
 A nice thing about lists is that they can share parts of their structure. For example, if I create two new values {value: 0, rest: list} and {value: -1, rest: list} (with list referring to the binding defined earlier), they are both independent lists, but they share the structure that makes up their last three elements. The original list is also still a valid three-element list.
 
-Write a function arrayToList that builds up a list structure like the one shown when given [1, 2, 3] as argument. Also write a listToArray function that produces an array from a list. Then add a helper function prepend, which takes an element and a list and creates a new list that adds the element to the front of the input list, and nth, which takes a list and a number and returns the element at the given position in the list (with zero referring to the first element) or undefined when there is no such element.
+Write a function arrayToList that builds up a list structure like the one shown when given [1, 2, 3] 
+as argument. Also write a listToArray function that produces an array from a list. Then add a helper 
+function prepend, which takes an element and a list and creates a new list that adds the element to 
+the front of the input list, and nth, which takes a list and a number and returns the element at the 
+given position in the list (with zero referring to the first element) or undefined when there is no 
+such element.
 
 If you haven’t already, also write a recursive version of nth.
 */
@@ -306,16 +318,32 @@ function nth (list, number){
     return res;
 }
 
+//Recursive version
+function nth (list, number){
+    if (number === 0){
+        return list.value
+    }else{
+        return nth(list.rest, number)
+    }
+}
+
 
 /*
 Deep comparison
-The == operator compares objects by identity. But sometimes you’d prefer to compare the values of their actual properties.
+The == operator compares objects by identity. But sometimes you’d prefer to compare the values of 
+their actual properties.
 
-Write a function deepEqual that takes two values and returns true only if they are the same value or are objects with the same properties, where the values of the properties are equal when compared with a recursive call to deepEqual.
+Write a function deepEqual that takes two values and returns true only if they are the same value 
+or are objects with the same properties, where the values of the properties are equal when compared 
+with a recursive call to deepEqual.
 
-To find out whether values should be compared directly (use the === operator for that) or have their properties compared, you can use the typeof operator. If it produces "object" for both values, you should do a deep comparison. But you have to take one silly exception into account: because of a historical accident, typeof null also produces "object".
+To find out whether values should be compared directly (use the === operator for that) or have their 
+properties compared, you can use the typeof operator. If it produces "object" for both values, you 
+should do a deep comparison. But you have to take one silly exception into account: because of a 
+historical accident, typeof null also produces "object".
 
-The Object.keys function will be useful when you need to go over the properties of objects to compare them.
+The Object.keys function will be useful when you need to go over the properties of objects to compare 
+them.
 */
 
 function deepEqual(param1, param2) {

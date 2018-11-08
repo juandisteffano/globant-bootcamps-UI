@@ -16,31 +16,31 @@
 
 </head>
 
-<body onload="activarEfectoFadeIn('mostarEfecto-fadeIn')">
+<body>
 
-	<section class="hidden mostarEfecto-fadeIn" id="sectionMsj1">Jokes Random Response</section>
+	<section class="hidden" id="sectionMsj1">Jokes Random Response</section>
 
-	<button type="button" onclick="getJokesRandomResponse()">getJokesRandomResponse!</button>
+	<button type="button" id="getJokesRandomResponse" >getJokesRandomResponse!</button>
 
-	<section class="hidden mostarEfecto-fadeIn" id="sectionMsj2">Jokes Random Response - Reutilizable</section>
-	<button type="button" onclick="getJokesRandomResponseReutilizable('sectionMsj2')">getJokesRandomResponse - Reutilizable!</button>
+	<section class="hidden" id="sectionMsj2">Jokes Random Response - Reutilizable</section>
+	<button type="button" id="getJokesRandomResponseReutilizable">getJokesRandomResponse - Reutilizable!</button>
 	
 	
 	
-	<section class="hidden mostarEfecto-fadeIn" id="sectionMsj3">Git Repositories - Parametro Fijo</section>
+	<section class="hidden" id="sectionMsj3">Git Repositories - Parametro Fijo</section>
 	<ul id="ulListado-javascript"></ul>
-	<button type="button" onclick="getGitRepositories('ulListado-javascript','q','JavaScript')">getGitRepositories - Param JavaScript</button>
+	<button type="button" id="getGitRepositories">getGitRepositories - Param JavaScript</button>
 
 
-	<section class="hidden mostarEfecto-fadeIn" id="sectionMsj3">Git Repositories - Parametro Variable</section>
+	<section class="hidden" id="sectionMsj3">Git Repositories - Parametro Variable</section>
 	<label for="inputRepository">Search Key</label>
 	<input type="text" name="inputRepository" id="inputRepository">
 	<ul id="ulListado-GPM"></ul>
-	<button type="button" onclick="getGitRepositoriesVar('ulListado-GPM','q','inputRepository')">getGitRepositories - Param JavaScript</button>
+	<button type="button" id="getGitRepositoriesVar">getGitRepositories - Param JavaScript</button>
 
 
 	<div>
-		<button type="button" onclick="generarMatriz()">mostarMatriz!</button>
+		<button type="button" id="generarMatriz">mostarMatriz!</button>
 		<div id="matrix"></div>
   </div>
 
