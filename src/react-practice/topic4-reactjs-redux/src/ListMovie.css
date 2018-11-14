@@ -1,0 +1,20 @@
+.listMovie {
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 1px black;
+    box-sizing: border-box;
+    margin-right: 1%;
+    float: left;
+    width: 49%;
+  }
+
+li {
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 600px){
+  .listMovie{
+      width: 100%;
+      float: none;
+  }
+}
