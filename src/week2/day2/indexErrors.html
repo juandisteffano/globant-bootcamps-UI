@@ -4,7 +4,7 @@
     (function(){
         "use strict";
         var willPass = "Hi there";
-        wontPass = "nope";
+        var wontPass = "nope";
 
         console.log(`willPass = ${willPass}`);
         console.log(`wontPass = ${wontPass}`);
@@ -12,15 +12,52 @@
         let someArr = [1, 2, 3, 4];
 
         function giveMe(inx) {
-            return someArr[counter];
+                if (!someArr[inx]) {
+                    throw new Error("Array position invalid")
+                }else{
+                    return someArr[inx];
+                }
         }
 
+
         for (let counter= 0; counter <= someArr.length; counter++) {
-            console.log(`Index = ${counter}, value = ${giveMe(counter)}`);
+        //for (let counter= 0; counter < someArr.length; counter++) {
+            try{
+                console.log(`Index = ${counter}, value = ${giveMe(counter)}`);
+            }catch(e){
+                console.log(e);
+            }
         }
 
         console.log("The code continues");
+
     })()
+</script>
+
+<script>
+     function assert(condition, message) {
+                console.log(message);
+            if (!condition) {
+                throw new Error("Condition Failed")
+            }
+    }
+
+       
+       try{
+            assert(3>2,"Test Assertion Valid");
+            console.log("OK");
+       }catch (e){
+           console.log(e);
+       }
+
+
+       try{
+            assert(3<2,"Test Assertion Error");
+            console.log("OK");
+       }catch (e){
+           console.log(e);
+       }
+
 </script>
 
 <!-- Now it's your turn to make some changes

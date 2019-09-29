@@ -1,10 +1,43 @@
-const express = ;
+const express = require("express");
 const app = express();
 const port = 3000;
+var fs = require("fs");
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 app.get('/', (req, res) => {
     res.send('Hello There!');
 })
+app.get('/random', (req, res) => {
+    let result = Math.random() * 100;
+
+    res.send("Random: " + result.toFixed(0));
+})
+
+app.get('/saludo', function (req, res) {
+    var nombre = req.query.nombre;
+    res.send('<h1>Hola ' + nombre  + '</h1>');
+  });
+
+app.get('/jsonresp', (req, res) => {
+    fs.readFile("./package.json", function(err, data){
+        if(err) res.send(err);
+        res.send(JSON.parse(data));
+    })
+
+})
+
+app.get('/jsonrespurl', (req, res) => {
+    var config = {url: "https://api.github.com/search/repositories",
+				  param: [{"key": "q", "value": "JavaScript"}]
+                };
+                
+	ajaxCall(config).then(function(value){
+                        res.send(JSON.parse(value));
+					}, function(reason){
+						console.log("error ", reason);
+					})
+
+});
 
 app.listen(port, () => {
     console.log('Example server listening on port ' + port);
@@ -22,3 +55,46 @@ app.listen(port, () => {
 // Add 2 other routes, one that does whatever you want, and another one
 // that load up a JSON file from the server (if you don't know what that is, Google it)
 // and sends the content as a string (little tip, theres a Js method for that)
+
+
+function ajaxCall(config){
+    return new Promise(function(resolve, reject){
+        var req = new XMLHttpRequest();
+
+        req.onreadystatechange = function () {
+            if (req.readyState == 4) {
+                if(req.status == 200){
+                    resolve(req.responseText);
+                }else{
+                    reject(new Error(req.statusText));
+                }
+            }
+        };
+
+        req.onerror = function(){
+			reject(new Error(this.statusText));
+		};
+		
+		//armar url
+		var url = getUrlConParam(config);
+        
+
+        req.open('GET', url , true);
+		req.send(null);
+		
+    })
+}
+
+function getUrlConParam(config){
+	var url = config.url;
+	for(let i= 0; i <config.param.length; i++){
+		url += "?"
+		url += config.param[i].key;
+		url += "="
+		url += config.param[i].value;
+		if (i != (config.param.length -1)){
+			url += "&"
+		}
+	}
+	return url;	
+}

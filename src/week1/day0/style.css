@@ -115,6 +115,11 @@ footer {
     background: red;
 }
 
+button {
+    display: block;
+    margin-top: 25px;
+}
+
 
 
 

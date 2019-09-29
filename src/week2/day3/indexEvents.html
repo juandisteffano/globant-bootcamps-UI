@@ -1,10 +1,9 @@
+<!doctype html>
+
+<meta charset="utf8">
+
 <!-- Take this file and open it on a browser, then open the console
 inside developer tools -->
-<script>
-    (function(){
-        "use strict";
-    })()
-</script>
 
 <!-- Now it's your turn to make some changes
     - Draw some buttons, make your way between the click events and let me know they are pressed
@@ -16,3 +15,69 @@ inside developer tools -->
     ****      position, make it show on screen      ****
     ****************************************************
 -->
+
+<div id="principal"></div>
+
+<head>
+<script>
+    (function(){
+        "use strict";
+        let principal = document.getElementById("principal");
+
+        let b1 = document.createElement("button");
+        principal.appendChild(b1);
+        b1.appendChild(document.createTextNode("Boton 1"));
+
+        b1.onclick = function(){
+            alert("Se presiono el boton 1")
+        }
+        b1.onmouseover = function(){
+            b1.firstChild.nodeValue = "Clickeame";
+        }
+        b1.onmouseleave = function(){
+            b1.firstChild.nodeValue = "Boton 1";
+        }
+
+        let b2 = document.createElement("button"); 
+        principal.appendChild(b2);
+        b2.appendChild(document.createTextNode("Boton 2"));
+        b2.onclick = function(){
+            alert("Se presiono el boton 2")
+        }
+        b2.onmouseover = function(){
+            b2.firstChild.nodeValue = "Clickeame";
+        }
+        b2.onmouseleave = function(){
+            b2.firstChild.nodeValue = "Boton 2";
+        }
+
+        var textPosition = document.createElement("input");
+        textPosition.id = "textPosition";
+        principal.appendChild(textPosition);
+        textPosition.readOnly = true;
+        textPosition.value = "Posicion";
+
+        window.addEventListener("mousemove", event => {
+            textPosition.value = "X: " + event.pageX + ", Y: " + event.pageY;
+            
+            if(event.pageX > screen.width/2 && event.pageY > screen.height/2){
+                document.body.style.backgroundColor = "red";
+            }else if(event.pageX < screen.width/2 && event.pageY > screen.height/2){
+                document.body.style.backgroundColor = "green";
+            }else if(event.pageX > screen.width/2 && event.pageY < screen.height/2){
+                document.body.style.backgroundColor = "blue";
+            }else{
+                document.body.style.backgroundColor = "white";
+            }
+        });
+
+    })()
+</script>
+
+
+
+</head>
+
+<body>
+    
+</body>
